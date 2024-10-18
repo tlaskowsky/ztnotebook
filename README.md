@@ -1,6 +1,7 @@
 # ztnotebook for zt labs
 
 If you are new to Jupyter Notebook, try the Introduction_to_Jupyter_Notebooks.ipynb first.
+If you need to completely clear your lab environment, use Cleanup_Lab.ipynb.
 
 Lab list:
 
