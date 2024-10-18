@@ -31,6 +31,11 @@ jobs:
           git checkout main -- lab1/ lab3/ lab5/ lab6/ lab7/ # Add as many lab directories as needed
           git checkout main -- *.md *.ipynb # Sync root-level .txt files or other specific files
 
+          # Remove unwanted files like .gitignore, README.md
+          git rm .gitignore || true  # Remove .gitignore if it was merged
+          git rm README.md || true   # Remove README.md if it was merged
+
+
       - name: Restore docs-specific files to ensure they are not overwritten
         run: |
           git restore --source=docs .github/workflows/ci.yml
