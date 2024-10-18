@@ -39,34 +39,29 @@ def generate_mkdocs_nav():
     return nav
 
 def update_mkdocs_yml(nav):
-    with open('mkdocs.yml', 'r') as file:
-        lines = file.readlines()
+    # Start with the basic configuration
+    config = [
+        "site_name: zt lab notebooks docs\n",
+        "theme:\n",
+        "  name: material\n",
+        "plugins:\n",
+        "  - search\n",
+        "nav:\n"
+    ]
     
-    # Find the nav section and update it
-    nav_start = -1
-    for i, line in enumerate(lines):
-        if line.strip() == 'nav:':
-            nav_start = i
-            break
-    
-    if nav_start != -1:
-        lines = lines[:nav_start+1]  # Keep everything before nav
-    else:
-        lines.append('nav:\n')
-    
-    # Add the new nav items
+    # Add the nav items
     for item in nav:
         if isinstance(item, dict):
             for key, value in item.items():
-                lines.append(f'  - {key}:\n')
+                config.append(f"  - {key}:\n")
                 for subitem in value:
-                    lines.append(f'    - {subitem}\n')
+                    config.append(f"    - {subitem}\n")
         else:
-            lines.append(f'  - {item}\n')
+            config.append(f"  - {item}\n")
     
     # Write the updated mkdocs.yml
     with open('mkdocs.yml', 'w') as file:
-        file.writelines(lines)
+        file.writelines(config)
 
 if __name__ == "__main__":
     nav = generate_mkdocs_nav()
