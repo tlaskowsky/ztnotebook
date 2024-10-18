@@ -29,7 +29,7 @@ jobs:
         run: |
           # Sync lab files from the root directory
           git checkout main -- lab1/ lab3/ lab5/ lab6/ lab7/ # Add as many lab directories as needed
-          git checkout main -- *.txt  *.md *.ipynb # Sync root-level .txt files or other specific files
+          git checkout main -- *.md *.ipynb # Sync root-level .txt files or other specific files
 
       - name: Restore docs-specific files to ensure they are not overwritten
         run: |
