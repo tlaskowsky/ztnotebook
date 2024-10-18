@@ -33,4 +33,10 @@ jobs:
           else
             echo "generate_docs.py not found"
           fi
+      - name: Debug information
+        run: |
+          echo "Content of mkdocs.yml after generation:"
+          cat mkdocs.yml
+          echo "\nSearching for 'searchnav' references:"
+          grep -R "searchnav" .
       - run: mkdocs gh-deploy --force
