@@ -3,7 +3,7 @@ name: Sync Docs on Main Update
 on:
   push:
     branches:
-      - main  # Only runs when changes are pushed to the main branch
+      - main  # Trigger only when there's a push to the main branch
 
 permissions:
   contents: write
@@ -20,15 +20,24 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-      - name: Merge main branch into docs, resolving conflicts
+      - name: Merge main branch into docs
         run: |
           git fetch origin
           git checkout docs
-          git merge origin/main --allow-unrelated-histories || true
-          # Resolve conflict by keeping the docs version of the ci.yml file
-          git checkout --ours .github/workflows/ci.yml
-          git add .github/workflows/ci.yml
-          git commit -m "Resolve conflict by keeping docs branch version of ci.yml"
+          
+          # Merge main into docs, allow unrelated histories
+          git merge origin/main --allow-unrelated-histories --no-edit || true
+
+          # Prevent overwriting the ci.yml in the docs branch
+          git restore --source=docs .github/workflows/ci.yml
+
+          # Check for any conflicts, exit if found
+          if git ls-files -u | grep -q "."; then
+            echo "There are still unresolved conflicts"
+            exit 1
+          fi
+
+          git commit -m "Sync main branch files into docs branch without overwriting ci.yml in docs"
 
       - name: Push changes to docs branch
         run: git push origin docs
