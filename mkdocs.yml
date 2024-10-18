@@ -1,0 +1,4 @@
+site_name: Zero Trust Lab
+site_url: https://tlaskowsky.github.io/ztnotebook/
+theme:
+  name: material
