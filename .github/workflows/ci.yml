@@ -3,7 +3,7 @@ name: Sync Docs on Main Update
 on:
   push:
     branches:
-      - main  # Only runs when changes are pushed to the main branch
+      - main  # Only runs when there is a push to the main branch
 
 permissions:
   contents: write
@@ -20,11 +20,11 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-      - name: Merge main branch into docs
+      - name: Merge main branch into docs with unrelated histories
         run: |
           git fetch origin
           git checkout docs
-          git merge origin/main --no-edit
+          git merge origin/main --allow-unrelated-histories --no-edit
 
       - name: Push changes to docs branch
         run: git push origin docs
