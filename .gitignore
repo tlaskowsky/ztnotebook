@@ -10,6 +10,3 @@ generate_docs.py
 # Python cache files
 __pycache__/
 *.pyc
-
-# GitHub Actions workflow
-/.github/workflows/
