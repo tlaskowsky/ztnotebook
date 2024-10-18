@@ -1,0 +1,15 @@
+# MkDocs documentation
+/site/
+/docs/
+mkdocs.yml
+generate_docs.py
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# GitHub Actions workflow
+/.github/workflows/
