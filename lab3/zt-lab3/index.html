@@ -1,0 +1,1636 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../lab5/zt-lab5/">
+      
+      
+        <link rel="next" href="../../lab6/zt-lab6/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+    
+    
+      
+        <title>zt-lab3 - zt lab notebooks docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#traditional-perimeter-based-security" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="zt lab notebooks docs" class="md-header__button md-logo" aria-label="zt lab notebooks docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zt lab notebooks docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              zt-lab3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zt lab notebooks docs" class="md-nav__button md-logo" aria-label="zt lab notebooks docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    zt lab notebooks docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Introduction_to_Jupyter_Notebooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction_to_Jupyter_Notebooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cleanup_Lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cleanup_Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            lab1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/zt-lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab5
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            lab5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab5/zt-lab5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            lab3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab3
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab6
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            lab6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab6/zt-lab6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab7
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            lab7
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab7/zt-lab7b/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab7b
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab7/zt-lab7a/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab7a
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="traditional-perimeter-based-security">Traditional Perimeter-Based Security</h1>
+<h1 id="lab-3-creating-a-traditionally-secured-system">Lab 3: Creating a Traditionally-Secured System</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Welcome to the lab of our Zero Trust course! In this lab, we'll set up a basic, traditionally-secured system in AWS using AWS CLI commands and Python (boto3). This hands-on approach will help you understand each component of the system and why better security practices are necessary.</p>
+<p><img alt="image.png" src="../zt-lab3-image-simulation.png" />
+<strong>Try the simulation here <a href="https://pfjzerotrust.s3.amazonaws.com/tradsecdemo/index.html">NetworkSecurityDemo</a></strong>
+<strong>ID: admin, PW: password123</strong></p>
+<h2 id="objectives">Objectives</h2>
+<p>By the end of this lab, you will:
+1. Create a Virtual Private Cloud (VPC) with a public and private subnets
+2. Set up an Internet Gateway and configure routing
+3. Setup a NAT Gateway
+3. Create a security group with restricted access
+4. Setup Secrets Manager
+5. Deploy a "sensitive" backend server
+6. Launch a public-facing web server
+7. (not implemented) CloudTrail (API log) and CloudWatch (Metric and Event Monitoring) for ovservability</p>
+<p><img alt="image.png" src="../zt-lab3-image-cover.png" /></p>
+<h2 id="setup">Setup</h2>
+<p>First, let's set up our AWS environment. Make sure you have configured your AWS CLI with the appropriate credentials.</p>
+<pre><code class="language-python"># Import necessary AWS SDK and utility modules
+
+import boto3
+import json
+import time
+</code></pre>
+<h2 id="set-the-aws-region">Set the AWS region</h2>
+<p>Configure the AWS region to create the network and servers</p>
+<pre><code class="language-python"># Set the AWS region for resource creation (change as needed)
+
+region = 'us-west-2'
+</code></pre>
+<h2 id="initialize-aws-clients">Initialize AWS clients</h2>
+<p>Setup the necessary environment variables</p>
+<pre><code class="language-python"># Initialize EC2 client and resource objects for interacting with AWS
+
+ec2_client = boto3.client('ec2', region_name=region)
+ec2_resource = boto3.resource('ec2', region_name=region)
+secretsmanager = boto3.client('secretsmanager', region_name=region)
+iam = boto3.client('iam', region_name=region)
+
+print(f&quot;AWS environment initialized in region: {region}&quot;)
+</code></pre>
+<h2 id="initialize-value-store">Initialize Value Store</h2>
+<p>Initialize long-term storage</p>
+<pre><code class="language-python">class ValueStore:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(ValueStore, cls).__new__(cls)
+            cls._instance.store = {}
+        return cls._instance
+
+    def set(self, key, value):
+        self.store[key] = value
+
+    def get(self, key, default=None):
+        return self.store.get(key, default)
+
+    def print_all(self):
+        for key, value in self.store.items():
+            print(f&quot;{key}: {value}&quot;)
+
+# Create a global instance
+value_store = ValueStore()
+
+# Test the ValueStore
+value_store.set('test_key', 'test_value')
+print(value_store.get('test_key'))  # Should print: test_value
+</code></pre>
+<h2 id="step-1-create-a-vpc-and-subnet">Step 1: Create a VPC and Subnet</h2>
+<p>Let's start by creating our Virtual Private Cloud (VPC) and a public subnet.</p>
+<pre><code class="language-python"># Create VPC
+
+vpc_response = ec2_client.create_vpc(CidrBlock='10.0.0.0/16')
+vpc_id = vpc_response['Vpc']['VpcId']
+ec2_client.create_tags(Resources=[vpc_id], Tags=[{'Key': 'Name', 'Value': 'TraditionalSecuredVPC'}])
+
+value_store.set('vpc_id', vpc_id)
+
+print(f&quot;VPC created with ID: {vpc_id}&quot;)
+</code></pre>
+<h3 id="access-the-vpc-vpc-menu-in-aws-management-console">Access the VPC - VPC Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below">It should look like below:</h4>
+<p><img alt="image.png" src="../zt-lab3-image-vpcs-VPC-Console.jpeg" /></p>
+<pre><code class="language-python"># Get available Availability Zones
+
+available_azs = ec2_client.describe_availability_zones()['AvailabilityZones']
+az = available_azs[0]['ZoneName']  # Choose the first available AZ
+
+# Create Public subnet
+public_subnet_response = ec2_client.create_subnet(
+    VpcId=value_store.get('vpc_id'),
+    CidrBlock='10.0.1.0/24',
+    AvailabilityZone=az,
+    TagSpecifications=[
+        {
+            'ResourceType': 'subnet',
+            'Tags': [
+                {
+                    'Key': 'Name',
+                    'Value': 'PublicSubnet'
+                }
+            ]
+        }
+    ]
+)
+public_subnet_id = public_subnet_response['Subnet']['SubnetId']
+print(f&quot;Public subnet created with ID: {public_subnet_id} in Availability Zone: {az}&quot;)
+
+# Enable auto-assign public IP for the public subnet
+ec2_client.modify_subnet_attribute(
+    SubnetId=public_subnet_id,
+    MapPublicIpOnLaunch={'Value': True}
+)
+print(&quot;Auto-assign public IP enabled for the public subnet&quot;)
+</code></pre>
+<pre><code class="language-python"># First, let's find the public subnet ID
+public_subnets = ec2_client.describe_subnets(
+    Filters=[
+        {'Name': 'vpc-id', 'Values': [vpc_id]},
+        {'Name': 'tag:Name', 'Values': ['PublicSubnet']}
+    ]
+)['Subnets']
+
+if not public_subnets:
+    raise ValueError(&quot;No public subnet found. Please ensure you've created a public subnet with the tag 'Name: PublicSubnet'&quot;)
+
+public_subnet_id = public_subnets[0]['SubnetId']
+public_subnet_az = public_subnets[0]['AvailabilityZone']
+
+print(f&quot;Found public subnet with ID: {public_subnet_id} in Availability Zone: {public_subnet_az}&quot;)
+
+# Now create the Private subnet in the same Availability Zone
+private_subnet_response = ec2_client.create_subnet(
+    VpcId=value_store.get('vpc_id'), 
+    CidrBlock='10.0.2.0/24',  # Different CIDR block for the private subnet
+    AvailabilityZone=public_subnet_az,
+    TagSpecifications=[
+        {
+            'ResourceType': 'subnet',
+            'Tags': [
+                {
+                    'Key': 'Name',
+                    'Value': 'PrivateSubnet'
+                }
+            ]
+        }
+    ]
+)
+private_subnet_id = private_subnet_response['Subnet']['SubnetId']
+print(f&quot;Private subnet created with ID: {private_subnet_id} in the same AZ as the public subnet: {public_subnet_az}&quot;)
+
+# Modify the private subnet to disable auto-assign public IP
+ec2_client.modify_subnet_attribute(SubnetId=private_subnet_id, MapPublicIpOnLaunch={'Value': False})
+print(&quot;Auto-assign public IP disabled for the private subnet&quot;)
+</code></pre>
+<h3 id="access-the-vpc-subnets-menu-in-aws-management-console">Access the VPC - Subnets Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below_1">It should look like below:</h4>
+<h5 id="public-subnet">Public Subnet</h5>
+<p><img alt="image.png" src="../zt-lab3-image-pubsubnets-VPC-Console.jpeg" /></p>
+<h5 id="private-subnet">Private Subnet</h5>
+<p><img alt="image.png" src="../zt-lab3-image-pvtsubnets-VPC-Console.jpeg" /></p>
+<h2 id="step-2-set-up-internet-gateway">Step 2: Set up Internet Gateway</h2>
+<p>Now, let's create an Internet Gateway.</p>
+<pre><code class="language-python"># Create Internet Gateway
+igw_name = &quot;TraditionalSecuredIGW&quot;
+igw_response = ec2_client.create_internet_gateway(
+    TagSpecifications=[
+        {
+            'ResourceType': 'internet-gateway',
+            'Tags': [
+                {
+                    'Key': 'Name',
+                    'Value': igw_name
+                }
+            ]
+        }
+    ]
+)
+igw_id = igw_response['InternetGateway']['InternetGatewayId']
+ec2_client.attach_internet_gateway(InternetGatewayId=igw_id, VpcId=value_store.get('vpc_id'))
+print(f&quot;Internet Gateway '{igw_name}' created and attached with ID: {igw_id}&quot;)
+</code></pre>
+<h3 id="access-the-vpc-internet-gateways-menu-in-aws-management-console">Access the VPC - Internet Gateways Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below_2">It should look like below:</h4>
+<p><img alt="image.png" src="../zt-lab3-image-igws-VPC-Console.jpeg" /></p>
+<h2 id="step-3-set-up-nat-gateway">Step 3: Set up NAT Gateway</h2>
+<p>Next, let's create a NAT Gateway (Network Address Translation) to give instances in private subnet access to the Internet.</p>
+<pre><code class="language-python"># Setup NAT Gateway
+# Note: This will take a few minutes
+
+def setup_nat_gateway(vpc_id, public_subnet_id, nat_gateway_name=&quot;TraditionalSecuredNATGW&quot;):
+    # Create Elastic IP
+    eip = ec2_client.allocate_address(Domain='vpc')
+
+    # Create NAT Gateway with a name tag
+    nat_gateway = ec2_client.create_nat_gateway(
+        SubnetId=public_subnet_id,
+        AllocationId=eip['AllocationId'],
+        TagSpecifications=[
+            {
+                'ResourceType': 'natgateway',
+                'Tags': [
+                    {
+                        'Key': 'Name',
+                        'Value': nat_gateway_name
+                    }
+                ]
+            }
+        ]
+    )
+
+    # Wait for the NAT Gateway to be available
+    waiter = ec2_client.get_waiter('nat_gateway_available')
+    waiter.wait(
+        NatGatewayIds=[nat_gateway['NatGateway']['NatGatewayId']],
+        WaiterConfig={'Delay': 30, 'MaxAttempts': 10}
+    )
+
+    print(f&quot;NAT Gateway '{nat_gateway_name}' created with ID: {nat_gateway['NatGateway']['NatGatewayId']}&quot;)
+    return nat_gateway['NatGateway']['NatGatewayId']
+
+# Create the NAT Gateway
+nat_gateway_id = setup_nat_gateway(value_store.get('vpc_id'), public_subnet_id)
+print(f&quot;NAT Gateway setup complete with ID: {nat_gateway_id}&quot;)
+</code></pre>
+<h3 id="access-the-vpc-nat-gateways-menu-in-aws-management-console">Access the VPC - NAT Gateways Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below_3">It should look like below:</h4>
+<p><img alt="image.png" src="../zt-lab3-image-NatGateways-VPC-Console.jpeg" /></p>
+<pre><code class="language-python"># Create and configure Public route table
+
+rt_name = &quot;TraditionalSecuredPublicRT&quot;
+rt_response = ec2_client.create_route_table(
+    VpcId=value_store.get('vpc_id'),
+    TagSpecifications=[
+        {
+            'ResourceType': 'route-table',
+            'Tags': [
+                {
+                    'Key': 'Name',
+                    'Value': rt_name
+                }
+            ]
+        }
+    ]
+)
+rt_id = rt_response['RouteTable']['RouteTableId']
+
+# Create route to Internet Gateway
+ec2_client.create_route(RouteTableId=rt_id, DestinationCidrBlock='0.0.0.0/0', GatewayId=igw_id)
+
+# Associate route table with subnet
+ec2_client.associate_route_table(RouteTableId=rt_id, SubnetId=public_subnet_id)
+
+print(f&quot;Route table '{rt_name}' created and configured with ID: {rt_id}&quot;)
+</code></pre>
+<h3 id="access-the-vpc-public-route-tables-menu-in-aws-management-console">Access the VPC - Public Route Tables Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below_4">It should look like below:</h4>
+<p><img alt="image.png" src="../zt-lab3-image-PublicRouteTables-VPC-Console.jpeg" /></p>
+<pre><code class="language-python"># Create and configure Private route table
+
+private_rt_name = &quot;TraditionalSecuredPrivateRT&quot;
+private_rt_response = ec2_client.create_route_table(
+    VpcId=value_store.get('vpc_id'),
+    TagSpecifications=[
+        {
+            'ResourceType': 'route-table',
+            'Tags': [
+                {
+                    'Key': 'Name',
+                    'Value': private_rt_name
+                }
+            ]
+        }
+    ]
+)
+private_rt_id = private_rt_response['RouteTable']['RouteTableId']
+
+# Create route to NAT Gateway
+ec2_client.create_route(
+    RouteTableId=private_rt_id, 
+    DestinationCidrBlock='0.0.0.0/0', 
+    NatGatewayId=nat_gateway_id
+)
+
+# Associate route table with private subnet
+ec2_client.associate_route_table(RouteTableId=private_rt_id, SubnetId=private_subnet_id)
+
+print(f&quot;Private route table '{private_rt_name}' created and configured with ID: {private_rt_id}&quot;)
+
+# Optionally, you can describe the route table to verify its configuration
+routes = ec2_client.describe_route_tables(RouteTableIds=[private_rt_id])
+print(f&quot;Routes in the private route table: {routes['RouteTables'][0]['Routes']}&quot;)
+</code></pre>
+<h3 id="access-the-vpc-private-route-tables-menu-in-aws-management-console">Access the VPC - Private Route Tables Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below_5">It should look like below:</h4>
+<p><img alt="image.png" src="../zt-lab3-image-PrivateRouteTables-VPC-Console.png" /></p>
+<h2 id="step-4-create-an-traditional-secured-security-groups">Step 4: Create an Traditional Secured Security Groups</h2>
+<p>Let's create a security group that allows for following:
+1. FrontendSG: Allow traffic to port 80 from all locations
+2. BackendSG: Allow traffic to pourt 80 from instance that is assigned FrontendSG</p>
+<pre><code class="language-python">import boto3
+ec2_client = boto3.client('ec2')
+
+def create_security_groups(vpc_id):
+    # FRONTEND SECURITY GROUP
+    # Create Web Server Security Group
+    frontend_sg = ec2_client.create_security_group(
+        GroupName='FrontendSG',
+        Description='Allow HTTP access to web server',
+        VpcId=vpc_id
+    )
+    frontend_sg_id = frontend_sg['GroupId']
+
+    # Add Name tag to Frontend Security Group
+    ec2_client.create_tags(
+        Resources=[frontend_sg_id],
+        Tags=[{'Key': 'Name', 'Value': 'FrontendSG'}]
+    )
+
+    # Add inbound rule to allow HTTP traffic from anywhere
+    ec2_client.authorize_security_group_ingress(
+        GroupId=frontend_sg_id,
+        IpPermissions=[
+            {'IpProtocol': 'tcp', 'FromPort': 80, 'ToPort': 80, 'IpRanges': [{'CidrIp': '0.0.0.0/0'}]}
+        ]
+    )
+
+    # BACKEND SECURITY GROUP
+    # Create Backend Server Security Group
+    backend_sg = ec2_client.create_security_group(
+        GroupName='BackendSG',
+        Description='Allow access from web server to backend server',
+        VpcId=vpc_id
+    )
+    backend_sg_id = backend_sg['GroupId']
+
+    # Add Name tag to Backend Security Group
+    ec2_client.create_tags(
+        Resources=[backend_sg_id],
+        Tags=[{'Key': 'Name', 'Value': 'BackendSG'}]
+    )
+
+    # Add inbound rule to allow all TCP traffic from the frontend security group
+    ec2_client.authorize_security_group_ingress(
+        GroupId=backend_sg_id,
+        IpPermissions=[
+            {'IpProtocol': 'tcp', 'FromPort': 0, 'ToPort': 65535, 'UserIdGroupPairs': [{'GroupId': frontend_sg_id}]}
+        ]
+    )
+    value_store.set('frontend_sg_id', frontend_sg_id)
+    value_store.set('backend_sg_id', backend_sg_id)
+
+    print(f&quot;Frontend Server Security Group ID: {frontend_sg_id}&quot;)
+    print(f&quot;Backend Server Security Group ID: {backend_sg_id}&quot;)
+    return frontend_sg_id, backend_sg_id
+
+# Usage example
+web_sg_id, backend_sg_id = create_security_groups(value_store.get('vpc_id'))
+</code></pre>
+<h3 id="access-the-vpc-security-groups-menu-in-aws-management-console">Access the VPC - Security Groups Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below_6">It should look like below:</h4>
+<h5 id="frontend-sg">Frontend SG</h5>
+<p><img alt="image.png" src="../zt-lab3-image-FESecurity-groups-EC2-us-west-2.jpeg" /></p>
+<h5 id="backend-sg">Backend SG</h5>
+<p><img alt="image.png" src="../zt-lab3-image-BESecurity-groups-EC2-us-west-2.jpeg" /></p>
+<h2 id="step-5-setup-aws-secrets-manager">Step 5: Setup AWS Secrets Manager</h2>
+<p>Let's create a secret in AWS Secrets Manager to store our web server credentials.</p>
+<ul>
+<li>Username: admin</li>
+<li>Password: password123</li>
+</ul>
+<pre><code class="language-python"># Setup the username and password for accessing the sensitive data
+
+import random
+import string
+
+def generate_unique_name(base_name, length=8):
+    random_suffix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
+    return f&quot;{base_name}-{random_suffix}&quot;
+
+def setup_secrets_manager():
+    secret_name = generate_unique_name('WebServerCredentials')
+    secret_value = json.dumps({
+        'username': 'admin',
+        'password': 'password123'  # In a real scenario, use a strong, randomly generated password
+    })
+
+    secret = secretsmanager.create_secret(
+        Name=secret_name,
+        Description='Credentials for Web Server authentication',
+        SecretString=secret_value
+    )
+
+    print(f&quot;Secret created with ARN: {secret['ARN']}&quot;)
+    print(f&quot;Secret Name: {secret_name}&quot;)
+    return secret['ARN'], secret_name
+
+secret_arn, secret_name = setup_secrets_manager()
+</code></pre>
+<h3 id="access-the-secrets-manager-sectets-menu-in-aws-management-console">Access the Secrets Manager - Sectets Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below_7">It should look like below:</h4>
+<p><img alt="image.png" src="../zt-lab3-image-WebServerCredentials-Secrets-Manager-Secrets-Manager-us-west-2.jpeg" /></p>
+<h2 id="step-6-create-iam-role-for-web-server">Step 6: Create IAM Role for Web Server</h2>
+<p>Now, let's create an IAM role that allows the web server to access the secret we just created.</p>
+<pre><code class="language-python">def create_iam_role(secret_arn):
+    import random
+    import string
+    def generate_unique_name(base_name, length=8):
+        random_suffix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
+        return f&quot;{base_name}-{random_suffix}&quot;
+
+    role_name = generate_unique_name('WebServerRole')
+    policy_name = generate_unique_name('WebServerSecretAccess')
+    instance_profile_name = generate_unique_name('WebServerInstanceProfile')
+
+    assume_role_policy = json.dumps({
+        &quot;Version&quot;: &quot;2012-10-17&quot;,
+        &quot;Statement&quot;: [
+            {
+                &quot;Effect&quot;: &quot;Allow&quot;,
+                &quot;Principal&quot;: {&quot;Service&quot;: &quot;ec2.amazonaws.com&quot;},
+                &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+            }
+        ]
+    })
+
+    role = iam.create_role(
+        RoleName=role_name,
+        AssumeRolePolicyDocument=assume_role_policy
+    )
+
+    policy = iam.create_policy(
+        PolicyName=policy_name,
+        PolicyDocument=json.dumps({
+            &quot;Version&quot;: &quot;2012-10-17&quot;,
+            &quot;Statement&quot;: [
+                {
+                    &quot;Effect&quot;: &quot;Allow&quot;,
+                    &quot;Action&quot;: &quot;secretsmanager:GetSecretValue&quot;,
+                    &quot;Resource&quot;: secret_arn
+                }
+            ]
+        })
+    )
+
+    iam.attach_role_policy(
+        RoleName=role_name,
+        PolicyArn=policy['Policy']['Arn']
+    )
+
+    # Create an instance profile and add the role to it
+    instance_profile = iam.create_instance_profile(InstanceProfileName=instance_profile_name)
+    iam.add_role_to_instance_profile(InstanceProfileName=instance_profile_name, RoleName=role_name)
+
+    print(f&quot;IAM Role created: {role['Role']['Arn']}&quot;)
+    print(f&quot;Role Name: {role_name}&quot;)
+    print(f&quot;Policy Name: {policy_name}&quot;)
+    print(f&quot;Instance Profile Name: {instance_profile_name}&quot;)
+    print(f&quot;Instance Profile ARN: {instance_profile['InstanceProfile']['Arn']}&quot;)
+
+    return role['Role']['Arn'], role_name, policy_name, instance_profile['InstanceProfile']['Arn']
+
+role_arn, role_name, policy_name, instance_profile_arn = create_iam_role(secret_arn)
+</code></pre>
+<h3 id="access-the-iam-role-menu-in-aws-management-console">Access the IAM - Role Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below_8">It should look like below:</h4>
+<p><img alt="image.png" src="../zt-lab3-image-WebServerRole-IAM-Global.jpeg" /></p>
+<h2 id="step-7-deploy-backend-server">Step 7: Deploy Backend Server</h2>
+<p>Now, let's deploy our backend server with a mock sensitive database.</p>
+<pre><code class="language-python"># Function to fetch the latest Amazon Linux 2 AMI ID with error handling and fallback
+
+def get_latest_amazon_linux_2_ami():
+    try:
+        response = ec2_client.describe_images(
+            Owners=['amazon'],
+            Filters=[
+                {'Name': 'name', 'Values': ['amzn2-ami-hvm-*-x86_64-gp2']},
+                {'Name': 'state', 'Values': ['available']}
+            ]
+        )
+
+        if not response['Images']:
+            print(&quot;No Amazon Linux 2 AMIs found. Falling back to a default AMI ID.&quot;)
+            return 'ami-0caa0a2e2a99b8b82'  # This is a fallback AMI ID, replace with a known good one for your region
+
+        # Sort the images by creation date
+        sorted_images = sorted(response['Images'], key=lambda x: x['CreationDate'], reverse=True)
+        latest_ami_id = sorted_images[0]['ImageId']
+        print(f&quot;Latest Amazon Linux 2 AMI ID: {latest_ami_id}&quot;)
+        return latest_ami_id
+
+    except Exception as e:
+        print(f&quot;An error occurred while fetching the latest AMI: {str(e)}&quot;)
+        print(&quot;Falling back to a default AMI ID.&quot;)
+        return 'ami-0caa0a2e2a99b8b82'  # This is a fallback AMI ID, replace with a known good one for your region
+
+# Get the latest Amazon Linux 2 AMI ID
+ami_id = get_latest_amazon_linux_2_ami()
+print(f&quot;Using AMI ID: {ami_id}&quot;)
+</code></pre>
+<pre><code class="language-python"># User data script for backend instance setup: installs and configures Apache with PHP
+
+backend_user_data = '''#!/bin/bash
+yum update -y
+yum install -y httpd php
+systemctl start httpd
+systemctl enable httpd
+cat &lt;&lt;EOF &gt; /var/www/html/api.php
+&lt;?php
+\$data = ['sensitive' =&gt; 'This is sensitive data from the backend'];
+header('Content-Type: application/json');
+echo json_encode(\$data);
+?&gt;
+EOF
+'''
+</code></pre>
+<pre><code class="language-python"># Create and launch the backend EC2 instance with specified configuration
+# Only assign Private IP
+
+backend_instance = ec2_resource.create_instances(
+    ImageId=ami_id,  # Amazon Linux 2 AMI ID (replace with the latest)
+    InstanceType='t3.micro',
+    MaxCount=1,
+    MinCount=1,
+    NetworkInterfaces=[{
+        'SubnetId': private_subnet_id,
+        'DeviceIndex': 0,
+        'AssociatePublicIpAddress': False,
+        'Groups': [value_store.get('backend_sg_id')]
+    }],
+    UserData=backend_user_data,
+    TagSpecifications=[
+        {
+            'ResourceType': 'instance',
+            'Tags': [
+                {
+                    'Key': 'Name',
+                    'Value': 'BackendServer'
+                },
+            ]
+        },
+    ]
+)
+backend_id = backend_instance[0].id
+print(f&quot;Backend server deployed with ID: {backend_id}&quot;)
+</code></pre>
+<pre><code class="language-python"># Wait for the instance to be running to get the IP addresses
+backend_instance[0].wait_until_running()
+backend_instance[0].reload()
+
+# Get private IP
+backend_private_ip = backend_instance[0].private_ip_address
+print(f&quot;Backend server private IP: {backend_private_ip}&quot;)
+
+# Get public IP if it exists
+backend_public_ip = backend_instance[0].public_ip_address
+if backend_public_ip:
+    print(f&quot;Backend server public IP: {backend_public_ip}&quot;)
+else:
+    print(&quot;Backend server does not have a public IP address.&quot;)
+</code></pre>
+<h3 id="access-the-ec2-be-instances-menu-in-aws-management-console">Access the EC2 - BE Instances Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below_9">It should look like below:</h4>
+<h5 id="server-details-tab">Server Details Tab</h5>
+<p><img alt="image.png" src="../zt-lab3-image-BEInstances1-EC2-us-west-2.jpeg" /></p>
+<h5 id="server-security-tab">Server Security Tab</h5>
+<p><img alt="image.png" src="../zt-lab3-image-BEInstances2-EC2-us-west-2.png" /></p>
+<h2 id="step-8-deploy-frontend-web-server">Step 8: Deploy Frontend Web Server</h2>
+<p>Finally, let's deploy our public-facing web server.</p>
+<pre><code class="language-python"># User data script for frontend instance setup: installs and configures Apache with PHP
+# Create a simple login screen that will verify the credentials with Secrets Manager
+
+frontend_user_data = f'''#!/bin/bash
+exec &gt; &gt;(tee /var/log/user-data.log|logger -t user-data -s 2&gt;/dev/console) 2&gt;&amp;1
+echo &quot;Starting user data script execution&quot;
+yum update -y
+yum install -y httpd php aws-cli
+systemctl start httpd
+systemctl enable httpd
+echo &quot;date.timezone = America/New_York&quot; &gt;&gt; /etc/php.ini
+cat &lt;&lt;'EOT' &gt; /var/www/html/index.php
+&lt;?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
+
+function getSecret() {{
+    $region = '{region}';
+    $output = shell_exec(&quot;aws secretsmanager get-secret-value --secret-id {secret_name} --query SecretString --output text --region $region&quot;);
+    return json_decode($output, true);
+}}
+
+$secret = getSecret();
+if ($secret) {{
+    $USERNAME = $secret['username'];
+    $PASSWORD = $secret['password'];
+}} else {{
+    die(&quot;Error: Unable to fetch credentials&quot;);
+}}
+
+$error_message = &quot;&quot;;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {{
+    if (isset($_POST['logout'])) {{
+        session_destroy();
+        header(&quot;Location: &quot; . $_SERVER['PHP_SELF']);
+        exit();
+    }} elseif (isset($_POST['reset'])) {{
+        session_destroy();
+        header(&quot;Location: &quot; . $_SERVER['PHP_SELF']);
+        exit();
+    }} elseif (isset($_POST['username']) &amp;&amp; isset($_POST['password'])) {{
+        if ($_POST['username'] === $USERNAME &amp;&amp; $_POST['password'] === $PASSWORD) {{
+            $_SESSION['authenticated'] = true;
+        }} else {{
+            $error_message = &quot;Invalid username or password. Please try again.&quot;;
+        }}
+    }}
+}}
+?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Secure Web Server&lt;/title&gt;
+    &lt;style&gt;
+        body {{ font-family: Arial, sans-serif; margin: 0; padding: 20px; }}
+        .container {{ max-width: 600px; margin: 0 auto; }}
+        .error {{ color: red; }}
+        form {{ margin-top: 20px; }}
+        input {{ margin-bottom: 10px; }}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;?php
+        if (isset($_SESSION['authenticated']) &amp;&amp; $_SESSION['authenticated'] === true) {{
+            $backend_ip = &quot;{backend_private_ip}&quot;;
+            $data = @file_get_contents(&quot;http://$backend_ip/api.php&quot;);
+            if ($data === false) {{
+                echo &quot;&lt;h1&gt;Error connecting to backend server&lt;/h1&gt;&quot;;
+                echo &quot;&lt;p&gt;Please check the backend server configuration.&lt;/p&gt;&quot;;
+            }} else {{
+                echo &quot;&lt;h1&gt;Welcome to our Secure Web Server!&lt;/h1&gt;&quot;;
+                echo &quot;&lt;h2&gt;Data from backend:&lt;/h2&gt;&quot;;
+                echo $data;
+            }}
+            echo &quot;&lt;form method='post'&gt;&quot;;
+            echo &quot;&lt;input type='submit' name='logout' value='Logout'&gt;&quot;;
+            echo &quot;&lt;input type='submit' name='reset' value='Reset'&gt;&quot;;
+            echo &quot;&lt;/form&gt;&quot;;
+        }} else {{
+            echo &quot;&lt;h1&gt;Please Log In&lt;/h1&gt;&quot;;
+            if ($error_message) {{
+                echo &quot;&lt;p class='error'&gt;$error_message&lt;/p&gt;&quot;;
+            }}
+            echo &quot;&lt;form method='post'&gt;&quot;;
+            echo &quot;Username: &lt;input type='text' name='username'&gt;&lt;br&gt;&quot;;
+            echo &quot;Password: &lt;input type='password' name='password'&gt;&lt;br&gt;&quot;;
+            echo &quot;&lt;input type='submit' value='Log In'&gt;&quot;;
+            echo &quot;&lt;/form&gt;&quot;;
+        }}
+        ?&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+EOT
+chown apache:apache /var/www/html/index.php
+chmod 644 /var/www/html/index.php
+systemctl restart httpd
+echo &quot;User data script execution completed&quot;
+'''
+</code></pre>
+<pre><code class="language-python"># Create and launch the frontend EC2 instance with specified configuration
+
+web_instance = ec2_resource.create_instances(
+    ImageId=ami_id,  # Amazon Linux 2 AMI ID (replace with the latest)
+    InstanceType='t3.micro',
+    MaxCount=1,
+    MinCount=1,
+    NetworkInterfaces=[{
+        'SubnetId': public_subnet_id,
+        'DeviceIndex': 0,
+        'AssociatePublicIpAddress': True,
+        'Groups': [value_store.get('frontend_sg_id')]
+    }],
+    UserData=frontend_user_data,
+    TagSpecifications=[
+        {
+            'ResourceType': 'instance',
+            'Tags': [
+                {
+                    'Key': 'Name',
+                    'Value': 'FrontendServer'
+                },
+            ]
+        },
+    ],
+    IamInstanceProfile={'Arn': instance_profile_arn}  # Use the Instance Profile ARN here
+)
+web_id = web_instance[0].id
+print(f&quot;Web server deployed with ID: {web_id}&quot;)
+</code></pre>
+<pre><code class="language-python"># Wait for the instance to be running to get the IP addresses
+web_instance[0].wait_until_running()
+web_instance[0].reload()
+
+# Get private IP
+web_private_ip = web_instance[0].private_ip_address
+print(f&quot;Web server private IP: {web_private_ip}&quot;)
+
+# Get public IP
+web_public_ip = web_instance[0].public_ip_address
+if web_public_ip:
+    print(f&quot;Frontend Web server public IP: {web_public_ip}&quot;)
+else:
+    print(&quot;Frontend Web server does not have a public IP address.&quot;)
+</code></pre>
+<h3 id="access-the-ec2-fe-instances-menu-in-aws-management-console">Access the EC2 - FE Instances Menu in AWS Management Console.</h3>
+<h4 id="it-should-look-like-below_10">It should look like below:</h4>
+<h5 id="server-details-tab_1">Server Details Tab</h5>
+<p><img alt="image.png" src="../zt-lab3-image-FEInstances1-EC2-us-west-2.jpeg" /></p>
+<h5 id="server-security-tab_1">Server Security Tab</h5>
+<p><img alt="image.png" src="../zt-lab3-image-FEInstances2-EC2-us-west-2.png" /></p>
+<h2 id="testing-the-traditionally-secured-system">Testing the Traditionally-Secured System</h2>
+<p>Now that our system is set up, let's test it by accessing the web server.</p>
+<pre><code class="language-python"># Wait for a bit to ensure the servers are fully initialized
+
+import time
+import boto3
+
+def wait_for_ec2_instances(instance_ids, region_name, timeout=300, interval=10):
+    &quot;&quot;&quot;
+    Waits for the given EC2 instances to pass system and instance status checks within a timeout period.
+
+    Args:
+        instance_ids (list): A list of EC2 instance IDs to check.
+        region_name (str): The AWS region where the instances are located.
+        timeout (int): The maximum time to wait (in seconds) before giving up.
+        interval (int): The time interval (in seconds) between status checks.
+
+    Returns:
+        bool: True if all instances pass system and instance checks within the timeout, False otherwise.
+    &quot;&quot;&quot;
+    ec2 = boto3.client('ec2', region_name=region_name)
+    start_time = time.time()
+
+    while time.time() - start_time &lt; timeout:
+        # Check the status of the EC2 instances
+        response = ec2.describe_instance_status(InstanceIds=instance_ids)
+
+        # Get the instance statuses
+        statuses = {instance['InstanceId']: {
+                        'instance_state': instance['InstanceState']['Name'],
+                        'system_status': instance['SystemStatus']['Status'],
+                        'instance_status': instance['InstanceStatus']['Status']
+                    }
+                    for instance in response['InstanceStatuses']}
+
+        # Check if all instances are 'running' and both system and instance checks are 'ok'
+
+
+        all_ready = all(
+            status['instance_state'] == 'running' and 
+            status['system_status'] == 'ok' and 
+            status['instance_status'] == 'ok'
+            for status in statuses.values()
+        )
+
+        if all_ready:
+            print(f&quot;All instances {instance_ids} are fully initialized and passed all checks.&quot;)
+            return True
+
+        print(f&quot;Current statuses: {statuses}&quot;)
+        print(f&quot;Waiting for EC2 instances {instance_ids} to pass system and instance checks...&quot;)
+        time.sleep(interval)
+
+    print(f&quot;Timeout: EC2 instances {instance_ids} did not fully initialize within {timeout} seconds.&quot;)
+    return False
+
+# IDs of front-end and back-end EC2 instances
+frontend_instance_id = web_id  # Replace with your front-end instance ID
+backend_instance_id = backend_id   # Replace with your back-end instance ID
+region = 'us-west-2'  # Replace with your region
+
+# Wait for both front-end and back-end instances to be fully initialized
+if wait_for_ec2_instances([frontend_instance_id, backend_instance_id], region_name=region):
+    print(&quot;Both EC2 instances are fully initialized!&quot;)
+else:
+    print(&quot;One or both EC2 instances failed to fully initialize within the timeout.&quot;)
+</code></pre>
+<pre><code class="language-python"># Access the frontend web server
+
+import requests
+print(f&quot;Frontend Web server public IP: {web_public_ip}&quot;)
+print(&quot;Accessing the web server:&quot;)
+response = requests.get(f&quot;http://{web_public_ip}&quot;)
+print(response.text)
+</code></pre>
+<h3 id="access-the-frontend-web-server-using-its-public-ip">Access the Frontend Web Server using its Public IP</h3>
+<h4 id="it-should-look-like-below_11">It should look like below:</h4>
+<h5 id="before-login">Before Login</h5>
+<p><img alt="image.png" src="../zt-lab3-image-login-Secure-Web-Server.jpeg" /></p>
+<h5 id="after-login">After Login</h5>
+<p><img alt="image.png" src="../zt-lab3-image-afterlogin-Secure-Web-Server.jpeg" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this lab, we've set up a traditionally-secured system in AWS and explored its components. The system functions are:
+1. This system has the authenticate the user against the credentials in Secrets Manager
+2. If credentials match, then access to the sensitive information is displayed
+3. If credentials do not match, then access is denied</p>
+<p>This system is based on "Trust and Verify" model.
+Next we will explore the zero trust "Never Trust. Always VeriSfy" model.</p>
+<h2 id="cleanup">Cleanup</h2>
+<p>To avoid unnecessary charges, let's clean up our resources:</p>
+<pre><code class="language-python">import boto3
+import time
+import botocore
+
+# Initialize AWS clients
+ec2 = boto3.client('ec2')
+lambda_client = boto3.client('lambda')
+apigateway = boto3.client('apigateway')
+iam = boto3.client('iam')
+
+def wait_for_deletion(resource_type, resource_id, check_function):
+    print(f&quot;Confirming deletion of {resource_type} {resource_id}...&quot;)
+    max_attempts = 30
+    for _ in range(max_attempts):
+        try:
+            if not check_function(resource_id):
+                print(f&quot;{resource_type} {resource_id} has been deleted.&quot;)
+                return True
+        except botocore.exceptions.ClientError as e:
+            if e.response['Error']['Code'] == 'InvalidVpcID.NotFound':
+                print(f&quot;{resource_type} {resource_id} has been deleted.&quot;)
+                return True
+        print(f&quot;{resource_type} {resource_id} is still being deleted. Waiting...&quot;)
+        time.sleep(10)
+    print(f&quot;Timeout waiting for {resource_type} {resource_id} to be deleted.&quot;)
+    return False
+
+
+def delete_ec2_instances():
+    print(&quot;Deleting EC2 instances...&quot;)
+    response = ec2.describe_instances(
+        Filters=[{'Name': 'instance-state-name', 'Values': ['pending', 'running', 'stopping', 'stopped']}]
+    )
+    instance_ids = [instance['InstanceId'] for reservation in response['Reservations'] for instance in reservation['Instances']]
+    if instance_ids:
+        ec2.terminate_instances(InstanceIds=instance_ids)
+        waiter = ec2.get_waiter('instance_terminated')
+        waiter.wait(InstanceIds=instance_ids)
+    print(&quot;EC2 instances deleted.&quot;)
+
+def delete_security_groups():
+    print(&quot;Deleting security groups...&quot;)
+    response = ec2.describe_security_groups()
+    for sg in response['SecurityGroups']:
+        if sg['GroupName'] != 'default':
+            try:
+                ec2.delete_security_group(GroupId=sg['GroupId'])
+                print(f&quot;Security group {sg['GroupId']} deleted.&quot;)
+            except botocore.exceptions.ClientError as e:
+                print(f&quot;Error deleting security group {sg['GroupId']}: {e}&quot;)
+    print(&quot;Security group deletion attempted.&quot;)
+
+def delete_nat_gateway():
+    print(&quot;Deleting NAT Gateways...&quot;)
+    response = ec2.describe_nat_gateways()
+    for nat_gateway in response['NatGateways']:
+        ec2.delete_nat_gateway(NatGatewayId=nat_gateway['NatGatewayId'])
+        wait_for_deletion('NAT Gateway', nat_gateway['NatGatewayId'], 
+                          lambda id: ec2.describe_nat_gateways(NatGatewayIds=[id])['NatGateways'][0]['State'] != 'deleted')
+
+    # Release Elastic IPs
+    response = ec2.describe_addresses()
+    for eip in response['Addresses']:
+        if 'AssociationId' not in eip:
+            ec2.release_address(AllocationId=eip['AllocationId'])
+    print(&quot;NAT Gateways deleted and Elastic IPs released.&quot;)
+
+def delete_internet_gateway():
+    print(&quot;Deleting Internet Gateways...&quot;)
+    response = ec2.describe_internet_gateways()
+    for igw in response['InternetGateways']:
+        if igw['Attachments']:
+            ec2.detach_internet_gateway(InternetGatewayId=igw['InternetGatewayId'], VpcId=igw['Attachments'][0]['VpcId'])
+        ec2.delete_internet_gateway(InternetGatewayId=igw['InternetGatewayId'])
+    print(&quot;Internet Gateways deleted.&quot;)
+
+def delete_subnets():
+    print(&quot;Deleting subnets...&quot;)
+    response = ec2.describe_subnets()
+    for subnet in response['Subnets']:
+        if not subnet['DefaultForAz']:
+            ec2.delete_subnet(SubnetId=subnet['SubnetId'])
+    print(&quot;Subnets deleted.&quot;)
+
+def delete_route_tables():
+    print(&quot;Deleting route tables...&quot;)
+    response = ec2.describe_route_tables()
+    for rt in response['RouteTables']:
+        if not rt.get('Associations') or not any(assoc.get('Main') for assoc in rt.get('Associations')):
+            ec2.delete_route_table(RouteTableId=rt['RouteTableId'])
+    print(&quot;Route tables deleted.&quot;)
+
+def delete_vpc():
+    print(&quot;Deleting VPCs...&quot;)
+    response = ec2.describe_vpcs()
+    for vpc in response['Vpcs']:
+        if not vpc['IsDefault']:
+            try:
+                print(f&quot;Attempting to delete VPC {vpc['VpcId']}...&quot;)
+                ec2.delete_vpc(VpcId=vpc['VpcId'])
+                wait_for_deletion('VPC', vpc['VpcId'], 
+                                  lambda id: bool(ec2.describe_vpcs(VpcIds=[id])['Vpcs']))
+            except botocore.exceptions.ClientError as e:
+                if e.response['Error']['Code'] == 'InvalidVpcID.NotFound':
+                    print(f&quot;VPC {vpc['VpcId']} has already been deleted.&quot;)
+                else:
+                    print(f&quot;Error deleting VPC {vpc['VpcId']}: {e}&quot;)
+                    print(&quot;Please check and manually delete any remaining resources in this VPC.&quot;)
+    print(&quot;VPC deletion completed.&quot;)
+
+
+def delete_lambda_function():
+    print(&quot;Deleting Lambda functions...&quot;)
+    lambda_functions = lambda_client.list_functions()
+    for function in lambda_functions['Functions']:
+        if function['FunctionName'].startswith('IdentityProviderFunction-'):
+            lambda_client.delete_function(FunctionName=function['FunctionName'])
+    print(&quot;Lambda functions deleted.&quot;)
+
+def delete_api_gateway():
+    print(&quot;Deleting API Gateway...&quot;)
+    apis = apigateway.get_rest_apis()
+    for api in apis['items']:
+        if api['name'] == 'IdentityProviderApi':
+            apigateway.delete_rest_api(restApiId=api['id'])
+    print(&quot;API Gateway deleted.&quot;)
+
+def delete_iam_role():
+    print(&quot;Deleting IAM roles...&quot;)
+    roles = iam.list_roles()
+    for role in roles['Roles']:
+        if role['RoleName'].startswith('LabLambdaExecutionRole-'):
+            attached_policies = iam.list_attached_role_policies(RoleName=role['RoleName'])
+            for policy in attached_policies['AttachedPolicies']:
+                iam.detach_role_policy(RoleName=role['RoleName'], PolicyArn=policy['PolicyArn'])
+            iam.delete_role(RoleName=role['RoleName'])
+    print(&quot;IAM roles deleted.&quot;)
+
+def cleanup():
+    delete_ec2_instances()
+    delete_nat_gateway()
+    delete_internet_gateway()
+    delete_subnets()
+    delete_route_tables()
+    delete_security_groups()
+    delete_vpc()
+    delete_lambda_function()
+    delete_api_gateway()
+    delete_iam_role()
+    print(&quot;Cleanup completed.&quot;)
+
+# Run the cleanup
+cleanup()
+</code></pre>
+<pre><code class="language-python">
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

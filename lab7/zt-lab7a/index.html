@@ -1,0 +1,1103 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../zt-lab7b/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+    
+    
+      
+        <title>zt-lab7a - zt lab notebooks docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#single-packet-authentication-all-drop-firewall-sdp-pdp-pep" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="zt lab notebooks docs" class="md-header__button md-logo" aria-label="zt lab notebooks docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zt lab notebooks docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              zt-lab7a
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zt lab notebooks docs" class="md-nav__button md-logo" aria-label="zt lab notebooks docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    zt lab notebooks docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Introduction_to_Jupyter_Notebooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction_to_Jupyter_Notebooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cleanup_Lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cleanup_Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            lab1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/zt-lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab5
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            lab5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab5/zt-lab5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            lab3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/zt-lab3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab6
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            lab6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab6/zt-lab6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab7
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            lab7
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zt-lab7b/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab7b
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab7a
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="single-packet-authentication-all-drop-firewall-sdp-pdp-pep">Single Packet Authentication, All Drop Firewall, SDP, PDP, PEP</h1>
+<h1 id="zero-trust-architecture-simulation-guide">Zero Trust Architecture Simulation Guide</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This interactive simulation demonstrates key concepts of Zero Trust Architecture (ZTA) in a simplified environment. By engaging with this simulation, you'll gain hands-on experience with core ZTA principles such as continuous authentication, least privilege access, and dynamic trust determination.</p>
+<p><img alt="image.png" src="../zt-lab7a-image-cover.png" /></p>
+<h2 id="simulation-overview">Simulation Overview</h2>
+<p>The simulation represents a basic Zero Trust environment with the following components:</p>
+<ol>
+<li>Client: Represents the user trying to access resources.</li>
+<li>All-Drop Firewall: Initially blocks all access attempts.</li>
+<li>Software-Defined Perimeter (SDP) Controller: Manages access requests and authentication.</li>
+<li>Policy Decision Point (PDP): Evaluates access policies.</li>
+<li>Identity Provider (IdP): Handles user authentication.</li>
+<li>Policy Enforcement Point (PEP): Enforces access decisions.</li>
+<li>Backend Server: Hosts the sensitive data.</li>
+</ol>
+<h2 id="how-to-use-the-simulation">How to Use the Simulation</h2>
+<ol>
+<li>Run the Jupyter notebook to start the simulation.</li>
+<li>You'll be presented with a login interface.</li>
+<li>After successful login, you can simulate various user behaviors and attempt to access the backend server.</li>
+<li>Observe how the system responds to different scenarios.</li>
+</ol>
+<h2 id="use-cases">Use Cases</h2>
+<h3 id="use-case-1-standard-login-and-access">Use Case 1: Standard Login and Access</h3>
+<ol>
+<li>Login with username "admin" and password "password123".</li>
+<li>(If asked) MFA will be generated randomly.</li>
+<li>Click "Access Backend Server".</li>
+<li>Observe how the system grants access after verifying your credentials and token.</li>
+</ol>
+<h3 id="use-case-2-session-expiration">Use Case 2: Session Expiration</h3>
+<ol>
+<li>Login as in Use Case 1.</li>
+<li>Click "Simulate User Behavior" multiple times until you see "Session expired due to token expiration".</li>
+<li>Attempt to log in again and access the backend server.</li>
+<li>Notice how the system requires re-authentication after session expiration.</li>
+</ol>
+<h3 id="use-case-3-unusual-behavior-detection-and-mfa">Use Case 3: Unusual Behavior Detection and MFA</h3>
+<ol>
+<li>Login as in Use Case 1.</li>
+<li>Click "Simulate User Behavior" until you see "Unusual behavior detected".</li>
+<li>You'll be logged out and required to provide an MFA code.</li>
+<li>Log in again with the provided MFA code.</li>
+<li>Try accessing the backend server again.</li>
+<li>Observe how the system handles stepped-up authentication in response to unusual behavior.</li>
+</ol>
+<h3 id="use-case-4-failed-authentication">Use Case 4: Failed Authentication</h3>
+<ol>
+<li>Attempt to login with incorrect credentials (e.g., username "user", password "wrongpass").</li>
+<li>Observe how the system denies access and doesn't proceed to the backend server.</li>
+</ol>
+<h3 id="use-case-5-logout-and-re-authentication">Use Case 5: Logout and Re-authentication</h3>
+<ol>
+<li>Login successfully.</li>
+<li>Click the "Logout" button.</li>
+<li>Attempt to access the backend server without logging in.</li>
+<li>Notice how the system requires authentication for each new session.</li>
+</ol>
+<h2 id="key-learning-points">Key Learning Points</h2>
+<ul>
+<li><strong>Continuous authentication</strong>: The system constantly verifies the user's identity and session validity.</li>
+<li><strong>Least privilege access</strong>: Access is granted only after successful authentication and policy evaluation.</li>
+<li><strong>Dynamic trust</strong>: Trust is never assumed and is re-evaluated based on user behavior and session state.</li>
+<li><strong>Multi-factor authentication (MFA)</strong>: Additional authentication factors are required when unusual behavior is detected.</li>
+</ul>
+<h2 id="reflection-questions">Reflection Questions</h2>
+<ol>
+<li>How does this Zero Trust approach differ from traditional perimeter-based security?</li>
+<li>What are the potential benefits and challenges of implementing a Zero Trust Architecture in a real-world scenario?</li>
+<li>How might this basic model be expanded to cover more complex scenarios in enterprise environments?</li>
+</ol>
+<p>By exploring these use cases and reflecting on the simulation, you'll gain valuable insights into the principles and operations of Zero Trust Architecture.</p>
+<pre><code class="language-python"># Import Necessary Modules
+import random
+import time
+from datetime import datetime, timedelta
+import ipywidgets as widgets
+from IPython.display import display, clear_output, HTML
+
+# User session data
+user_session = {
+    'authenticated': False,
+    'username': None,
+    'password': None,
+    'token': None,
+    'token_expiry': None,
+    'session_timeout': 300,  # 5 minutes
+    'require_mfa': False,
+    'mfa_code': None
+}
+
+# Output areas
+status_output = widgets.Output()
+spa_output = widgets.Output()
+login_output = widgets.Output()
+user_behavior_output = widgets.Output()
+
+# Main container
+app_display = widgets.VBox([
+    status_output,
+    spa_output,
+    login_output,
+    user_behavior_output
+])
+
+# Helper Functions for Visibility Management
+def show_output(widget):
+    widget.layout.visibility = 'visible'
+
+def hide_output(widget):
+    widget.layout.visibility = 'hidden'
+
+# Generate Random MFA Code
+def generate_mfa_code():
+    return ''.join([str(random.randint(0, 9)) for _ in range(6)])
+
+# Logout Function
+def logout():
+    # Clear all outputs
+    with spa_output:
+        clear_output(wait=True)
+    with user_behavior_output:
+        clear_output(wait=True)
+    with login_output:
+        clear_output(wait=True)
+    with status_output:
+        clear_output(wait=True)
+        print(&quot;Logged out successfully.&quot;)
+
+    # Reset user session
+    user_session.update({
+        'authenticated': False,
+        'username': None,
+        'password': None,
+        'token': None,
+        'token_expiry': None,
+        'require_mfa': False,
+        'mfa_code': None
+    })
+
+    # Re-display login interface
+    login_interface()
+
+# Session Termination Function
+def session_terminated(reason, keep_require_mfa=False):
+    # Clear SPA and User Behavior Outputs
+    with spa_output:
+        clear_output(wait=True)
+    with user_behavior_output:
+        clear_output(wait=True)
+    # Reset user session except 'require_mfa' if keep_require_mfa is True
+    user_session.update({
+        'authenticated': False,
+        'username': None,
+        'password': None,
+        'token': None,
+        'token_expiry': None
+    })
+    if keep_require_mfa:
+        user_session['require_mfa'] = True
+        user_session['mfa_code'] = None  # Will be generated in login_interface
+    else:
+        user_session['require_mfa'] = False
+        user_session['mfa_code'] = None
+    # For debugging: print user_session state after termination
+    with status_output:
+        clear_output()
+        print(f&quot;Session terminated: {reason}&quot;)
+    # Re-display login interface with termination message
+    login_interface(message=reason)
+
+# Login Interface
+def login_interface(message=None, keep_message=False):
+    # Show login_output and hide user_behavior_output
+    show_output(login_output)
+    hide_output(user_behavior_output)
+
+    # Clear previous contents
+    with login_output:
+        clear_output(wait=True)
+        # Create login fields
+        username_input = widgets.Text(
+            placeholder='Enter username',
+            description='Username:',
+            disabled=False
+        )
+        password_input = widgets.Password(
+            placeholder='Enter password',
+            description='Password:',
+            disabled=False
+        )
+        display(username_input, password_input)
+
+        # If MFA is required, add MFA input and generate a new MFA code
+        if user_session['require_mfa']:
+            user_session['mfa_code'] = generate_mfa_code()  # Generate new MFA code
+            mfa_input = widgets.Text(
+                placeholder='Enter MFA code',
+                description='MFA Code:',
+                disabled=False
+            )
+            display(mfa_input)
+            display(HTML(f&quot;&lt;p&gt;For simulation purposes, use MFA code: {user_session['mfa_code']}&lt;/p&gt;&quot;))
+        else:
+            mfa_input = None
+
+        # Display login button
+        login_button = widgets.Button(description='Login', button_style='primary')
+        output = widgets.Output()
+        display(login_button, output)
+
+    # Display termination message if any
+    if message and not keep_message:
+        with status_output:
+            clear_output()
+            display(HTML(f&quot;&lt;span style='color:red'&gt;{message}&lt;/span&gt;&quot;))
+    elif not keep_message:
+        with status_output:
+            clear_output()
+
+    # Clear SPA output
+    with spa_output:
+        clear_output(wait=True)
+
+    # Define Login Button Callback
+    def on_login_button_clicked(b):
+        username = username_input.value
+        password = password_input.value
+        mfa_code = mfa_input.value if mfa_input else None
+
+        user_session['username'] = username
+        user_session['password'] = password
+        user_session['entered_mfa'] = mfa_code
+
+        with output:
+            clear_output()
+
+        # Always start with the SPA process, regardless of MFA
+        send_spa_packet()
+
+    login_button.on_click(on_login_button_clicked)
+
+# SPA Process Functions
+def send_spa_packet():
+    with spa_output:
+        clear_output(wait=True)
+        print(&quot;Client: Attempting to access resource.&quot;)
+    time.sleep(1)
+    with spa_output:
+        print(&quot;All-Drop Firewall: Blocking access attempt.&quot;)
+    time.sleep(1)
+    with spa_output:
+        print(&quot;Client: Sending SPA packet to firewall.&quot;)
+    time.sleep(1)
+    firewall_process_spa()
+
+def firewall_process_spa():
+    with spa_output:
+        print(&quot;Firewall: SPA packet received.&quot;)
+    time.sleep(1)
+    with spa_output:
+        print(&quot;Firewall: Redirecting client to PDP.&quot;)
+    time.sleep(1)
+    pdp_evaluate_access()
+
+def pdp_evaluate_access():
+    with spa_output:
+        print(&quot;PDP: Received request from firewall.&quot;)
+    time.sleep(1)
+    with spa_output:
+        print(&quot;PDP: Communicating with IdP for user authentication.&quot;)
+    time.sleep(1)
+    auth_result = idp_authenticate()
+    pdp_decide_access(auth_result)
+
+
+def idp_authenticate():
+    with spa_output:
+        print(&quot;IdP: Verifying user credentials.&quot;)
+    time.sleep(1)
+
+    username = user_session['username']
+    password = user_session['password']
+    entered_mfa = user_session['entered_mfa']
+
+    if username == 'admin' and password == 'password123':
+        if user_session['require_mfa']:
+            if entered_mfa == user_session['mfa_code']:
+                with spa_output:
+                    print(&quot;IdP: User authenticated successfully with MFA.&quot;)
+                user_session['token'] = 'valid_token'
+                user_session['token_expiry'] = datetime.now() + timedelta(minutes=5)
+                return True
+            else:
+                with spa_output:
+                    print(&quot;IdP: MFA verification failed.&quot;)
+                return False
+        else:
+            with spa_output:
+                print(&quot;IdP: User authenticated successfully.&quot;)
+            user_session['token'] = 'valid_token'
+            user_session['token_expiry'] = datetime.now() + timedelta(minutes=5)
+            return True
+    else:
+        with spa_output:
+            print(&quot;IdP: User authentication failed.&quot;)
+        return False
+
+
+def pdp_decide_access(auth_result):
+    if auth_result:
+        with spa_output:
+            print(&quot;PDP: Authentication successful. Evaluating access policy.&quot;)
+        time.sleep(1)
+        # Here you could add additional policy checks if needed
+        with spa_output:
+            print(&quot;PDP: Access granted. Informing PEP to open port.&quot;)
+        time.sleep(1)
+        # Clear status_output to remove any residual messages
+        with status_output:
+            clear_output()
+        pep_open_port()
+    else:
+        with spa_output:
+            print(&quot;PDP: Authentication failed. Access denied.&quot;)
+        time.sleep(1)
+        with spa_output:
+            print(&quot;Client: Access denied. Cannot proceed.&quot;)
+        time.sleep(1)
+        # Display authentication failure message
+        with status_output:
+            clear_output()
+            display(HTML(&quot;&lt;span style='color:red'&gt;Authentication failed. Please try again.&lt;/span&gt;&quot;))
+        # Re-display login interface without clearing the error message
+        login_interface(keep_message=True)
+
+
+def pep_open_port():
+    with spa_output:
+        print(&quot;PEP: Opening port for client.&quot;)
+    # Transition to user behavior interface
+    user_behavior_interface()
+
+def client_send_request():
+    with spa_output:
+        print(&quot;Client: Sending request to backend server.&quot;)
+    time.sleep(1)
+    with spa_output:
+        print(&quot;BE Server: Verifying token.&quot;)
+    time.sleep(1)
+    if user_session.get('token') == 'valid_token' and datetime.now() &lt; user_session.get('token_expiry', datetime.min):
+        with spa_output:
+            print(&quot;BE Server: Token valid. Accessing sensitive data.&quot;)
+            print(&quot;\nAccess Granted:\nSensitive data from backend server.&quot;)
+        with status_output:
+            clear_output()
+            print(&quot;Access to sensitive data granted.&quot;)
+    else:
+        with spa_output:
+            print(&quot;BE Server: Invalid token. Access denied.&quot;)
+            print(&quot;Client: Access denied. Cannot access backend server.&quot;)
+        with status_output:
+            clear_output()
+            print(&quot;Access denied due to invalid token.&quot;)
+
+# User Behavior Interface
+def user_behavior_interface():
+    # Show User Behavior Output and Hide Login Output
+    show_output(user_behavior_output)
+    hide_output(login_output)
+
+    # Clear previous contents
+    with user_behavior_output:
+        clear_output(wait=True)
+        # Display user behavior buttons
+        simulate_button = widgets.Button(description='Simulate User Behavior', button_style='info')
+        access_button = widgets.Button(description='Access Backend Server', button_style='success')
+        logout_button = widgets.Button(description='Logout', button_style='danger')
+
+        # Define Button Callbacks
+        def on_simulate_button_clicked(b):
+            simulate_user_behavior()
+
+        def on_access_button_clicked(b):
+            client_send_request()
+
+        def on_logout_button_clicked(b):
+            logout()
+
+        simulate_button.on_click(on_simulate_button_clicked)
+        access_button.on_click(on_access_button_clicked)
+        logout_button.on_click(on_logout_button_clicked)
+
+        # Display Buttons Horizontally
+        display(widgets.HBox([simulate_button, access_button, logout_button]))
+
+    # Clear status_output
+    with status_output:
+        clear_output()
+    # SPA trace remains visible
+
+# User Behavior Simulation
+def simulate_user_behavior():
+    with status_output:
+        clear_output()
+        state = random.choice(['still_valid', 'token_expired', 'unusual_behavior'])
+        if state == 'still_valid':
+            display(HTML(&quot;&lt;p style='color:green'&gt;Simulated user state: still_valid&lt;/p&gt;&quot;))
+            display(HTML(&quot;&lt;p style='color:green'&gt;User behavior is normal. Session continues.&lt;/p&gt;&quot;))
+        elif state == 'token_expired':
+            print(f&quot;Simulated user state: {state}&quot;)
+            print(&quot;User token has expired. Please log in again.&quot;)
+            user_session['token_expiry'] = datetime.now() - timedelta(seconds=1)
+            session_terminated(&quot;Session expired due to token expiration.&quot;)
+        elif state == 'unusual_behavior':
+            print(f&quot;Simulated user state: {state}&quot;)
+            print(&quot;Unusual behavior detected. Please log in again.&quot;)
+            user_session.update({
+                'authenticated': False,
+                'token': None,
+                'token_expiry': None,
+                'require_mfa': True,
+                'mfa_code': None  # Set to None, will be generated in login_interface
+            })
+            session_terminated(&quot;Session terminated due to unusual behavior.&quot;, keep_require_mfa=True)
+    # For debugging: print user_session after simulating behavior
+    print(f&quot;DEBUG: user_session after simulating behavior = {user_session}&quot;)
+
+# Run the Lab
+def run_lab():
+    # Initially, show login_output and hide user_behavior_output
+    show_output(login_output)
+    hide_output(user_behavior_output)
+    # Display the main container
+    display(app_display)
+    # Initialize login interface
+    login_interface()
+
+run_lab()
+
+</code></pre>
+<pre><code class="language-python">
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

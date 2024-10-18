@@ -1,0 +1,762 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../lab6/zt-lab6/">
+      
+      
+        <link rel="next" href="../zt-lab7a/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+    
+    
+      
+        <title>zt-lab7b - zt lab notebooks docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#visual-simulation-single-packet-authentication-all-drop-firewall-sdp-pdp-pep" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="zt lab notebooks docs" class="md-header__button md-logo" aria-label="zt lab notebooks docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zt lab notebooks docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              zt-lab7b
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zt lab notebooks docs" class="md-nav__button md-logo" aria-label="zt lab notebooks docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    zt lab notebooks docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Introduction_to_Jupyter_Notebooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction_to_Jupyter_Notebooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cleanup_Lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cleanup_Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            lab1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab1/zt-lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab5
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            lab5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab5/zt-lab5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            lab3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/zt-lab3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab6
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            lab6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab6/zt-lab6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lab7
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            lab7
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab7b
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zt-lab7a/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zt-lab7a
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="visual-simulation-single-packet-authentication-all-drop-firewall-sdp-pdp-pep">Visual Simulation: Single Packet Authentication, All Drop Firewall, SDP, PDP, PEP</h1>
+<h1 id="zero-trust-architecture-react-visualization-guide">Zero Trust Architecture React Visualization Guide</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This interactive React application provides a visual demonstration of Zero Trust Architecture (ZTA) principles. By engaging with this simulation, you'll gain a graphical understanding of how different components in a Zero Trust environment interact during authentication, data access processes, and various security scenarios.</p>
+<p><img alt="image.png" src="../zt-lab7b-image-cover.png" /></p>
+<h3 id="visit-the-simulation-from-here"><a href="[Visit SPA Simulation](https://pfjzerotrust.s3.amazonaws.com/spademo/index.html)">Visit the Simulation from here</a></h3>
+<h2 id="visualization-overview">Visualization Overview</h2>
+<p>The application presents a simplified Zero Trust environment with the following components:</p>
+<ol>
+<li>Client: The end-user attempting to access resources.</li>
+<li>Front-end: The user interface of the application.</li>
+<li>Firewall: Acts as the initial barrier, following the "default deny" principle.</li>
+<li>Policy Decision Point (PDP): Evaluates access policies.</li>
+<li>Identity Provider (IdP): Handles user authentication.</li>
+<li>Policy Enforcement Point (PEP): Enforces access decisions.</li>
+<li>Back-end: Hosts the sensitive data.</li>
+</ol>
+<h2 id="how-to-use-the-visualization">How to Use the Visualization</h2>
+<ol>
+<li>Run the React application in your browser.</li>
+<li>You'll see a visual representation of the Zero Trust components and a login interface.</li>
+<li>Interact with the login process and observe how the system responds in different scenarios.</li>
+<li>Watch the animation of data flow between components based on your actions.</li>
+</ol>
+<h2 id="core-use-cases">Core Use Cases</h2>
+<h3 id="use-case-1-wrong-credentials">Use Case 1: Wrong Credentials</h3>
+<ol>
+<li>Enter incorrect username and password (e.g., username: "user", password: "wrongpass").</li>
+<li>Click the "Login" button.</li>
+<li>Observe the authentication failure process.</li>
+</ol>
+<p><strong>Learning Points:</strong>
+- How the system handles incorrect credentials.
+- The "default deny" principle in action.
+- The role of the IdP in credential verification.</p>
+<h3 id="use-case-2-proper-credentials">Use Case 2: Proper Credentials</h3>
+<ol>
+<li>Enter the correct username "admin" and password "password".</li>
+<li>Click the "Login" button.</li>
+<li>Observe the successful initial authentication process.</li>
+</ol>
+<p><strong>Learning Points:</strong>
+- The flow of successful credential verification.
+- How the system transitions to requiring additional verification (MFA).</p>
+<h3 id="use-case-3-access-backend-data-post-login">Use Case 3: Access Backend Data (Post-Login)</h3>
+<ol>
+<li>After successful login from Use Case 2, attempt to access backend data.</li>
+<li>Observe how the system handles this request without MFA.</li>
+</ol>
+<p><strong>Learning Points:</strong>
+- The principle of least privilege access.
+- How the system differentiates between general and sensitive data access.</p>
+<h3 id="use-case-4-logout">Use Case 4: Logout</h3>
+<ol>
+<li>After being logged in, click the "Logout" button.</li>
+<li>Observe how the system handles the logout process.</li>
+</ol>
+<p><strong>Learning Points:</strong>
+- Session termination in a Zero Trust environment.
+- How the system resets to its default secure state.</p>
+<h3 id="use-case-5-login-access-sensitive-data-wrong-mfa">Use Case 5: Login, Access Sensitive Data, Wrong MFA</h3>
+<ol>
+<li>Log in with correct credentials (username: "admin", password: "password").</li>
+<li>Attempt to access sensitive data, triggering an MFA request.</li>
+<li>Enter an incorrect MFA code.</li>
+<li>Observe the system's response to failed MFA.</li>
+</ol>
+<p><strong>Learning Points:</strong>
+- The role of Multi-Factor Authentication in Zero Trust.
+- How the system handles partial authentication success (correct password but failed MFA).
+- The importance of layered security measures.</p>
+<h3 id="use-case-6-login-access-sensitive-data-correct-mfa-access-backend-data">Use Case 6: Login, Access Sensitive Data, Correct MFA, Access Backend Data</h3>
+<ol>
+<li>Log in with correct credentials (username: "admin", password: "password").</li>
+<li>Attempt to access sensitive data, triggering an MFA request.</li>
+<li>Enter the correct MFA code "123456".</li>
+<li>Observe the full authentication process.</li>
+<li>Access the backend data and observe the data flow.</li>
+</ol>
+<p><strong>Learning Points:</strong>
+- The complete Zero Trust authentication and authorization process.
+- How successful MFA leads to access grant.
+- The flow of data from the backend to the client in a fully authenticated session.</p>
+<h2 id="reflection-questions">Reflection Questions</h2>
+<ol>
+<li>How does the visualization demonstrate the "never trust, always verify" principle of Zero Trust Architecture?</li>
+<li>What are the key differences you observed in the system's behavior between failed and successful authentication attempts?</li>
+<li>How does the addition of MFA enhance the security of the system? Are there any potential drawbacks?</li>
+<li>Based on the visualization, how would you explain the roles of the Policy Decision Point (PDP) and Policy Enforcement Point (PEP)?</li>
+<li>How does this model demonstrate the concept of least privilege access?</li>
+<li>Can you think of real-world scenarios where this type of authentication flow would be particularly beneficial or challenging to implement?</li>
+</ol>
+<h2 id="extended-learning">Extended Learning</h2>
+<ol>
+<li>Research and suggest additional authentication factors that could be incorporated into this Zero Trust model.</li>
+<li>Discuss how this visualization might change if it were to represent a microservices architecture instead of a monolithic back-end.</li>
+<li>Consider how the principles demonstrated in this visualization could be applied to other areas of cybersecurity, such as network segmentation or data encryption.</li>
+</ol>
+<p>By exploring these core use cases, reflecting on the questions, and engaging in extended learning activities, you'll develop a comprehensive understanding of Zero Trust Architecture principles and their practical application in modern cybersecurity environments.</p>
+<pre><code class="language-python">
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
