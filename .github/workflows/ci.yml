@@ -1,43 +1,41 @@
-name: Sync Docs on Main Update
+name: Sync Specific Files from Main to Docs
 
 on:
   push:
     branches:
-      - main  # Trigger only when there's a push to the main branch
+      - main  # Trigger on changes to the main branch
 
 permissions:
   contents: write
 
 jobs:
-  sync_docs:
+  sync_files:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Git credentials for pushing to docs branch
+      - name: Set up Git credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-      - name: Merge main branch into docs
+      - name: Fetch and checkout docs branch
         run: |
           git fetch origin
           git checkout docs
-          
-          # Merge main into docs, allow unrelated histories
-          git merge origin/main --allow-unrelated-histories --no-edit || true
 
-          # Prevent overwriting the ci.yml in the docs branch
+      - name: Copy lab files from main to docs
+        run: |
+          git checkout main -- <path_to_lab_files>  # Replace <path_to_lab_files> with actual directories or files to sync
+
+      - name: Restore docs-specific files to ensure they are not overwritten
+        run: |
           git restore --source=docs .github/workflows/ci.yml
+          git restore --source=docs mkdocs.yml
+          git restore --source=docs docs/
 
-          # Check for any conflicts, exit if found
-          if git ls-files -u | grep -q "."; then
-            echo "There are still unresolved conflicts"
-            exit 1
-          fi
-
-          git commit -m "Sync main branch files into docs branch without overwriting ci.yml in docs"
-
-      - name: Push changes to docs branch
-        run: git push origin docs
+      - name: Commit and push changes to docs
+        run: |
+          git commit -m "Sync lab files from main to docs"
+          git push origin docs
