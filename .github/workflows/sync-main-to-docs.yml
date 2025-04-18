@@ -45,8 +45,8 @@ jobs:
 
           # Explicitly remove specific files if they get copied accidentally or aren't wanted in docs
           # Check if the files exist before attempting removal
-          [ -f .gitignore ] && git rm .gitignore
-          [ -f README.md ] && git rm README.md # Only remove README if you have a different index in docs
+          [ -f .gitignore ] && git rm -f .gitignore
+          [ -f README.md ] && git rm -f README.md # Only remove README if you have a different index in docs
 
       # Restore any files that should ALWAYS come from the docs branch version
       # (e.g., mkdocs.yml if it's different, docs-specific assets)
