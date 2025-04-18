@@ -1,0 +1,5 @@
+site_name: zt lab notebooks docs
+theme:
+  name: material
+plugins:
+  - search
