@@ -1,0 +1,74 @@
+# .github/workflows/deploy-mkdocs.yml
+# This single workflow builds the site from 'main' and deploys to 'gh-pages'
+
+name: Deploy MkDocs Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger on changes to the main branch
+
+permissions:
+  contents: write # Needed for mkdocs gh-deploy to push to gh-pages branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Check out the code from the 'main' branch
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        # No need to specify ref, defaults to the triggering branch ('main')
+
+      # Step 2: Set up Python environment
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      # Step 3: Set up caching for dependencies (optional but recommended)
+      - name: Configure pip caching
+        uses: actions/cache@v4
+        with:
+          # Use requirements.txt hash for pip cache invalidation if you have one
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          path: ~/.cache/pip
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Configure MkDocs caching
+        # Use week number for MkDocs cache invalidation
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache # Cache directory used by MkDocs Material
+          restore-keys: |
+            mkdocs-material-
+
+      # Step 4: Install MkDocs and dependencies
+      - name: Install dependencies
+        run: pip install mkdocs-material nbconvert # Add other mkdocs plugins/deps here
+
+      # Step 5: Run any pre-build scripts (if necessary, using content from 'main' branch)
+      - name: Generate documentation (Optional)
+        run: |
+          if [ -f "generate_docs.py" ]; then
+            echo "Running generate_docs.py..."
+            python generate_docs.py
+          else
+            echo "generate_docs.py not found, skipping."
+          fi
+
+      # Step 6: Configure Git Credentials for deploy step
+      # mkdocs gh-deploy uses these credentials to push to the gh-pages branch
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      # Step 7: Build the site and deploy to gh-pages branch using mkdocs built-in command
+      # This command handles both building the HTML from the current checkout ('main')
+      # and pushing the result to the gh-pages branch.
+      - name: Deploy MkDocs site to gh-pages
+        run: mkdocs gh-deploy --force --clean
+
