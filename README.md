@@ -16,4 +16,4 @@ Lab list:
 
 - Day 3: Advanced Zero Trust Model Day
         - Lab 6: Zero Trust design with IdP and revokable session token (Jupyter Notebook)
-        - Lab 7: Zero Trust simulation with SPA, All-drop FW, SDP, PDP, PEP, and IdP (Jupyter Notebook)
+        - Lab 7b: Zero Trust simulation with SPA, All-drop FW, SDP, PDP, PEP, and IdP (Jupyter Notebook)
