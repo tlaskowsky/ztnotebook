@@ -12,7 +12,7 @@ Lab list:
 
 - Day 2: Basic Zero Trust Model Day
         - Lab 4: DAAS Analysis
-        - Lab 5: Basic Zero Trust design with w/Continuous Verification (Jupyter Notebook)
+        - Lab 5: Basic Zero Trust design with with Continuous Verification (Jupyter Notebook)
 
 - Day 3: Advanced Zero Trust Model Day
         - Lab 6: Zero Trust design with IdP and revokable session token (Jupyter Notebook)
