@@ -1,0 +1,72 @@
+# .github/workflows/sync-main-to-docs.yml
+# Syncs specific files from main to docs branch using a PAT
+
+name: Sync Specific Files from Main to Docs
+
+on:
+  push:
+    branches:
+      - main  # Trigger on changes to the main branch
+
+permissions:
+  contents: write
+
+jobs:
+  sync_files:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the main branch content
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+
+      # Configure Git credentials using the PAT secret
+      - name: Set up Git credentials using PAT
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          # Use the PAT for authentication instead of GITHUB_TOKEN
+          git remote set-url origin https://x-access-token:${{ secrets.WORKFLOW_PAT }}@github.com/${{ github.repository }}.git
+
+      # Fetch origin and checkout the docs branch
+      - name: Fetch and checkout docs branch
+        run: |
+          git fetch origin
+          # Checkout docs branch, creating it if it doesn't exist (or handle appropriately)
+          git checkout docs || git checkout -b docs
+
+      # Copy desired lab files/dirs and root files from main to the docs working copy
+      # Ensure this step does NOT copy .github/workflows/*
+      - name: Copy specific files from main to docs checkout
+        run: |
+          # Use git checkout <source-branch> -- <paths...>
+          # This only brings over the specified paths, so it shouldn't grab .github/workflows unless specified
+          git checkout main -- lab1/ lab3/ lab5/ lab6/ lab7/ # Add/remove labs as needed
+          git checkout main -- *.md *.ipynb # Add/remove root file patterns as needed
+
+          # Explicitly remove specific files if they get copied accidentally or aren't wanted in docs
+          # Check if the files exist before attempting removal
+          [ -f .gitignore ] && git rm .gitignore
+          [ -f README.md ] && git rm README.md # Only remove README if you have a different index in docs
+
+      # Restore any files that should ALWAYS come from the docs branch version
+      # (e.g., mkdocs.yml if it's different, docs-specific assets)
+      # Ensure mkdocs.yml is in the root of the 'docs' branch if using this workflow structure
+      - name: Restore docs-specific files
+        run: |
+          # Only restore if the file exists in the target branch history
+          git restore --source=origin/docs --staged --worktree -- mkdocs.yml || echo "mkdocs.yml not found in origin/docs, skipping restore."
+          # Add other files specific to the 'docs' branch build source if needed
+          # git restore --source=origin/docs --staged --worktree -- docs/ # Example if you have a /docs source dir
+
+      # Commit and push the changes TO the docs branch using the PAT
+      - name: Commit and push changes to docs branch
+        run: |
+          # Check if there are changes to commit
+          if ! git diff --staged --quiet; then
+            echo "Changes detected, committing and pushing to docs branch..."
+            git commit -m "Sync specific files from main to docs [skip ci]" # Add [skip ci] potentially? Check if needed.
+            git push origin docs
+          else
+            echo "No changes to commit to docs branch."
+          fi
+
