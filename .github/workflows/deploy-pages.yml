@@ -1,1 +1,83 @@
+# .github/workflows/deploy-pages.yml
+# Builds the site from the 'docs' branch (triggered by PAT push)
+# and deploys the built HTML to the 'gh-pages' branch.
+
+name: Deploy Docs Site to Pages
+
+on:
+  push:
+    branches:
+      - docs  # Trigger specifically on changes pushed to the docs branch (now works due to PAT)
+
+permissions:
+  contents: write # Needed for peaceiris/actions-gh-pages to push to gh-pages branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Check out the code from the 'docs' branch
+      - name: Checkout docs branch
+        uses: actions/checkout@v4
+        # Defaults to checking out the branch that triggered the workflow ('docs')
+
+      # Step 2: Set up Python environment
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      # Step 3: Set up caching for dependencies (optional but recommended)
+      - name: Configure pip caching
+        uses: actions/cache@v4
+        with:
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }} # Adjust if you use a different dependency file
+          path: ~/.cache/pip
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Configure MkDocs caching
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache # Cache directory used by MkDocs Material
+          restore-keys: |
+            mkdocs-material-
+
+      # Step 4: Install MkDocs and dependencies
+      - name: Install dependencies
+        run: pip install mkdocs-material nbconvert # Add other mkdocs plugins/deps here
+
+      # Step 5: Run any pre-build scripts (if necessary, using content from 'docs' branch)
+      - name: Generate documentation (Optional)
+        run: |
+          if [ -f "generate_docs.py" ]; then
+            echo "Running generate_docs.py..."
+            python generate_docs.py
+          else
+            echo "generate_docs.py not found, skipping."
+          fi
+
+      # Step 6: List files to verify mkdocs.yml presence (DEBUGGING STEP)
+      # Make sure mkdocs.yml exists in the root of the 'docs' branch checkout
+      - name: List files in workspace root (docs branch checkout)
+        run: ls -la
+
+      # Step 7: Build the MkDocs site from 'docs' branch content
+      # This reads mkdocs.yml and source files from the checkout
+      # Assumes mkdocs.yml is configured with correct 'docs_dir' relative to root (e.g., '.' if source is at root)
+      - name: Build MkDocs site
+        run: mkdocs build --clean
+        # If mkdocs.yml is NOT at the root of the docs branch, use -f flag:
+        # run: mkdocs build --clean -f path/within/docs/branch/mkdocs.yml
+
+      # Step 8: Deploy the built HTML ('./site' directory) to the 'gh-pages' branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4 # Use dedicated action for deployment
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Use GITHUB_TOKEN here, action handles permissions
+          publish_dir: ./site # Directory containing the built site
+          user_name: 'github-actions[bot]'
+          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          commit_message: Deploy docs site from ${{ github.sha }}
 
